@@ -11,7 +11,7 @@ window.addEventListener('load', function () {
 
     // Navbar Scrolled Effect
     const navbar = document.querySelector('.navbar');
-    window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', function () {
         if (window.scrollY > 50) {
             navbar.classList.add('scrolled');
         } else {
@@ -25,9 +25,14 @@ document.addEventListener('DOMContentLoaded', function () {
     const mapObj = document.getElementById('india-map-obj');
 
     if (mapObj) {
-        mapObj.addEventListener('load', function () {
+        const initMap = () => {
             const svgDoc = mapObj.contentDocument;
             if (!svgDoc) return;
+
+            // ... (rest of logic) ...
+
+            // Add styles to SVG
+            const styleElement = svgDoc.createElement('style');
 
             // Add styles to SVG
             const styleElement = svgDoc.createElement('style');

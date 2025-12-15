@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Political Soch</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <div class="mesh-bg"></div>
+
+    <!-- Login Overlay -->
+    <div id="loginOverlay"
+        class="position-fixed top-0 start-0 w-100 h-100 bg-white d-flex align-items-center justify-content-center"
+        style="z-index: 9999;">
+        <div class="text-center p-5 rounded-4 shadow-lg bg-light" style="max-width: 400px; width: 90%;">
+            <div class="mb-4">
+                <i class="fas fa-lock fa-3x text-primary mb-3"></i>
+                <h3 class="fw-bold">Admin Access</h3>
+                <p class="text-muted small">Restricted Area. Authorized Personnel Only.</p>
+            </div>
+            <div class="mb-3">
+                <input type="password" id="adminPassword" class="form-control form-control-lg text-center"
+                    placeholder="Enter Password">
+            </div>
+            <button id="loginBtn" class="btn btn-primary w-100 btn-lg rounded-pill shadow-sm">
+                Unlock Access <i class="fas fa-arrow-right ms-2"></i>
+            </button>
+            <p id="loginError" class="text-danger mt-3 small fw-bold d-none">
+                <i class="fas fa-exclamation-circle me-1"></i> Incorrect Password
+            </p>
+        </div>
+    </div>
+
+    <!-- Main Content (Hidden by default) -->
+    <div id="mainAdminContent" class="d-none">
+
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top glass-nav">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center gap-2" href="../index.html">
+                    <img src="../images/logo.png" alt="Political Soch" height="80">
+                    <span class="text-gradient fw-bold">Political Soch</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto align-items-center">
+                        <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                        <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="admin.html">Admin</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Page Header -->
+        <header class="hero-section text-center pb-0">
+            <div class="container">
+                <h1 class="display-4 mb-3">Staff ID Generator</h1>
+                <p class="lead text-muted">Generate professional identity cards for your campaign staff.</p>
+            </div>
+        </header>
+
+        <!-- Generator Section -->
+        <section class="py-5">
+            <div class="container">
+                <div class="row g-5">
+                    <!-- Inputs -->
+                    <div class="col-lg-4">
+                        <div class="glass-card p-4">
+                            <h4 class="fw-bold mb-4">Employee Details</h4>
+                            <form id="idCardForm">
+                                <div class="mb-3">
+                                    <label for="empName" class="form-label fw-bold">Full Name</label>
+                                    <input type="text" class="form-control" id="empName" placeholder="e.g. Rahul Verma"
+                                        required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="empRole" class="form-label fw-bold">Designation</label>
+                                    <input type="text" class="form-control" id="empRole"
+                                        placeholder="e.g. Senior Surveyor" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="empId" class="form-label fw-bold">Employee ID</label>
+                                    <input type="text" class="form-control" id="empId" placeholder="e.g. PS-2025-001"
+                                        required>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6 mb-3">
+                                        <label for="empValid" class="form-label fw-bold">Valid Thru</label>
+                                        <input type="text" class="form-control" id="empValid"
+                                            placeholder="e.g. Dec 2026" required>
+                                    </div>
+                                    <div class="col-6 mb-3">
+                                        <label for="empBlood" class="form-label fw-bold">Blood Group</label>
+                                        <select class="form-select" id="empBlood">
+                                            <option value="O+" selected>O+</option>
+                                            <option value="O-">O-</option>
+                                            <option value="A+">A+</option>
+                                            <option value="A-">A-</option>
+                                            <option value="B+">B+</option>
+                                            <option value="B-">B-</option>
+                                            <option value="AB+">AB+</option>
+                                            <option value="AB-">AB-</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="empPhoto" class="form-label fw-bold">Passport Photo</label>
+                                    <input type="file" class="form-control" id="empPhoto" accept="image/*" required>
+                                    <div class="form-text">Ratio 1:1 recommended. Max size 2MB.</div>
+                                </div>
+
+                                <!-- Hidden Canvas Trigger -->
+                                <div class="mt-4">
+                                    <p class="text-muted small text-center">Use the buttons under the preview to
+                                        download
+                                        each side.</p>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Preview -->
+                    <div class="col-lg-8 d-flex flex-row flex-wrap justify-content-center gap-4">
+
+                        <!-- FRONT CARD PREVIEW -->
+                        <div class="d-flex flex-column align-items-center">
+                            <h5 class="text-center text-muted mb-3 fw-bold">Front Side</h5>
+                            <div class="id-card-wrapper" id="captureTargetFront">
+                                <div class="id-card id-card-front">
+                                    <!-- Background Pattern -->
+                                    <div class="id-bg-pattern"></div>
+                                    <!-- Header -->
+                                    <div class="id-card-header">
+                                        <div class="d-flex align-items-center justify-content-center gap-2">
+                                            <img src="../images/logo.png" alt="Logo" class="id-logo">
+                                            <span class="id-company-name">Political Soch</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Content -->
+                                    <div class="id-card-body text-center">
+                                        <div
+                                            class="id-photo-frame mb-3 d-flex justify-content-center align-items-center bg-light">
+                                            <!-- Default Icon -->
+                                            <i class="fas fa-user text-secondary" id="defaultIcon"
+                                                style="font-size: 80px; opacity: 0.5;"></i>
+                                            <!-- Image (Hidden by default) -->
+                                            <img src="" id="previewPhoto" alt="Employee Photo"
+                                                style="display: none; width: 100%; height: 100%; object-fit: cover;">
+                                        </div>
+
+                                        <h3 class="id-name mb-1" id="previewName">Employee Name</h3>
+                                        <p class="id-role text-uppercase mb-3" id="previewRole">Designation</p>
+
+                                        <div
+                                            class="badge bg-primary-subtle text-primary border border-primary-subtle rounded-pill px-3 py-1 mb-3">
+                                            Official Staff
+                                        </div>
+
+                                        <div class="id-props text-start mx-4">
+                                            <table class="w-100">
+                                                <tr>
+                                                    <td class="text-muted small"><strong>ID No:</strong></td>
+                                                    <td class="text-end fw-bold" id="previewId">PS-XXXX-000</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-muted small"><strong>Valid Thru:</strong></td>
+                                                    <td class="text-end fw-bold" id="previewValid">Dec 2026</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-muted small"><strong>Blood Group:</strong></td>
+                                                    <td class="text-end fw-bold" id="previewBlood">O+</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                    <!-- Footer -->
+                                    <div class="id-stripe-bottom"></div>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-outline-primary w-50 mt-3 rounded-pill"
+                                id="downloadFrontBtn">
+                                <i class="fas fa-download me-2"></i> Download Front
+                            </button>
+                        </div>
+
+                        <!-- BACK CARD PREVIEW -->
+                        <div class="d-flex flex-column align-items-center">
+                            <h5 class="text-center text-muted mb-3 fw-bold">Back Side</h5>
+                            <div class="id-card-wrapper" id="captureTargetBack">
+                                <div class="id-card id-card-back">
+                                    <!-- Background Pattern -->
+                                    <div class="id-bg-pattern"></div>
+
+                                    <!-- Header -->
+                                    <div class="id-card-header-small gap-2">
+                                        <img src="../images/logo.png" alt="Logo" class="id-logo" style="height: 35px;">
+                                        <small class="text-white text-uppercase letter-spacing-2">Terms &
+                                            Conditions</small>
+                                    </div>
+
+                                    <!-- Content -->
+                                    <div class="id-card-body d-flex flex-column justify-content-between p-4">
+                                        <div class="text-start small text-muted lh-sm card-terms">
+                                            <p class="mb-2">1. This card is the property of <strong>Political
+                                                    Soch</strong>.
+                                            </p>
+                                            <p class="mb-2">2. It must be worn at all times while on duty.</p>
+                                            <p class="mb-2">3. If found, please return to the address below.</p>
+                                            <p class="mb-0">4. Misuse of this card is a punishable offense.</p>
+                                        </div>
+
+                                        <div class="d-flex align-items-center gap-3 my-3">
+                                            <div class="qr-box bg-white p-1 border">
+                                                <div id="qrCodeContainer"></div>
+                                            </div>
+                                            <div class="text-start">
+                                                <small class="d-block fw-bold text-dark">Scan to Verify</small>
+                                                <small class="text-xs text-muted">Use standard QR scanner</small>
+                                            </div>
+                                        </div>
+
+                                        <div class="text-start border-top pt-2">
+                                            <small class="fw-bold d-block">Political Soch HQ</small>
+                                            <small class="d-block text-muted" style="font-size: 0.65rem;">123, Democracy
+                                                Lane, Gwalior, (M.P.) - 474001</small>
+                                            <small class="d-block text-muted" style="font-size: 0.65rem;">Phone: +91
+                                                97524
+                                                62768</small>
+                                            <small class="d-block text-muted" style="font-size: 0.65rem;">Email:
+                                                info@politicalsoch.in</small>
+                                            <small class="d-block text-primary fw-bold"
+                                                style="font-size: 0.65rem;">www.politicalsoch.in</small>
+                                        </div>
+
+                                        <div class="mt-2 text-end">
+                                            <small class="text-muted d-block" style="font-size: 0.6rem;">Authorized
+                                                Signatory</small>
+                                            <div style="height: 20px;"></div> <!-- Signature Space -->
+                                        </div>
+                                    </div>
+
+                                    <!-- Footer -->
+                                    <div class="id-stripe-bottom"></div>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-outline-secondary w-50 mt-3 rounded-pill"
+                                id="downloadBackBtn">
+                                <i class="fas fa-download me-2"></i> Download Back
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="row mt-4">
+                    <div class="col-12 text-center">
+                        <button id="downloadPdfBtn" class="btn btn-primary btn-lg rounded-pill px-5 shadow-sm">
+                            <i class="fas fa-file-pdf me-2"></i> Download Both as PDF
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div> <!-- End Main Content -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <!-- jsPDF Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="../js/admin.js"></script>
+</body>
+
+</html>
+```
