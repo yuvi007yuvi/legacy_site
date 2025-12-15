@@ -29,13 +29,12 @@ document.addEventListener('DOMContentLoaded', function () {
             const svgDoc = mapObj.contentDocument;
             if (!svgDoc) return;
 
-            // ... (rest of logic) ...
+            // Check if already styled to prevent double initialization
+            if (svgDoc.getElementById('map-styles')) return;
 
             // Add styles to SVG
             const styleElement = svgDoc.createElement('style');
-
-            // Add styles to SVG
-            const styleElement = svgDoc.createElement('style');
+            styleElement.id = 'map-styles';
             styleElement.textContent = `
                 path { transition: all 0.3s ease; cursor: pointer; }
                 path:hover { fill: #ffffff !important; filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8)); transform: translateY(-2px); z-index: 100; stroke: #333 !important; stroke-width: 1px !important; }
@@ -87,6 +86,14 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
                 }
             }, 2000);
-        });
+        };
+
+        // Run immediately if already loaded
+        if (mapObj.contentDocument && mapObj.contentDocument.readyState === 'complete') {
+            initMap();
+        }
+
+        // Also waiting for load event just in case
+        mapObj.addEventListener('load', initMap);
     }
 });
