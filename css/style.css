@@ -79,6 +79,23 @@ h6 {
   color: var(--text-main);
 }
 
+/* Premium Section Badge */
+.section-badge {
+  background: rgba(67, 97, 238, 0.1);
+  /* light primary bg */
+  color: var(--primary);
+  font-size: 0.95rem;
+  /* Increased from default small badge size */
+  padding: 0.6rem 1.25rem;
+  border-radius: 50px;
+  font-weight: 800;
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  border: 1px solid rgba(67, 97, 238, 0.15);
+  box-shadow: 0 4px 10px rgba(67, 97, 238, 0.05);
+}
+
 .display-4 {
   font-weight: 800;
   background: linear-gradient(135deg, var(--primary), var(--secondary));
@@ -90,37 +107,114 @@ h6 {
 
 /* Navbar Glassmorphism */
 .navbar {
-  background: var(--bg-glass);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: var(--glass-border);
-  padding: 1rem 0;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 1.2rem 0;
   transition: var(--transition);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+}
+
+.navbar.scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  padding: 0.8rem 0;
 }
 
 .navbar-brand {
   font-weight: 800;
-  color: var(--primary) !important;
-  font-size: 1.5rem;
+  color: var(--text-main) !important;
+  font-size: 1.75rem;
+  letter-spacing: -0.5px;
 }
 
 .navbar-brand img {
-  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+  height: 45px;
+  /* Optimizing logo size */
+  width: auto;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
 }
 
 .nav-link {
   color: var(--text-main) !important;
   font-weight: 600;
-  padding: 0.5rem 1.5rem !important;
-  border-radius: 50px;
+  font-size: 1.05rem;
+  padding: 0.5rem 1rem !important;
+  margin: 0 0.2rem;
+  border-radius: 8px;
+  /* Softer radius than pill */
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+/* Hover Effect: Subtle Glow & Color Text */
+.nav-link:hover,
+.nav-link.active {
+  color: var(--primary) !important;
+  background: rgba(67, 97, 238, 0.08);
+  transform: translateY(-1px);
+}
+
+/* Optional: Underline effect
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0px;
+  left: 50%;
+  background: var(--primary);
+  transition: var(--transition);
+  transform: translateX(-50%);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 80%;
+} 
+*/
+
+/* Mobile Toggler */
+.navbar-toggler {
+  border: none;
+  background: rgba(67, 97, 238, 0.1);
+  padding: 0.5rem 0.75rem;
+  border-radius: 12px;
   transition: var(--transition);
 }
 
-.nav-link:hover,
-.nav-link.active {
-  background: rgba(67, 97, 238, 0.1);
-  color: var(--primary) !important;
-  transform: translateY(-2px);
+.navbar-toggler:focus {
+  box-shadow: none;
+  background: rgba(67, 97, 238, 0.2);
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(67, 97, 238, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Mobile Menu Dropdown */
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+  }
+
+  .nav-link {
+    padding: 0.8rem 1rem !important;
+    border-radius: 8px;
+  }
+
+  .nav-link.active,
+  .nav-link:hover {
+    background: rgba(67, 97, 238, 0.1);
+  }
 }
 
 /* Hero Section */
@@ -257,11 +351,56 @@ h6 {
   transition: var(--transition);
 }
 
-.service-card:hover .icon-3d {
-  transform: scale(1.1) rotate(5deg);
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  color: white;
+/* Icon 3D Container */
+.icon-3d {
+  width: 64px;
+  height: 64px;
+  background: white;
+  border-radius: 16px;
+  /* Soft square/squircle */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  color: var(--primary);
+  box-shadow: 0 10px 25px rgba(67, 97, 238, 0.15);
+  /* Soft colored shadow */
+  transition: var(--transition);
+  margin-bottom: 1rem;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
 }
+
+/* Subtle gradient overlay on hover */
+.icon-3d::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  opacity: 0;
+  transition: var(--transition);
+  z-index: -1;
+  border-radius: 16px;
+}
+
+.service-slide-card:hover .icon-3d,
+.glass-card:hover .icon-3d,
+.icon-3d:hover {
+  transform: translateY(-5px) rotate(5deg);
+  color: white;
+  box-shadow: 0 15px 35px rgba(67, 97, 238, 0.3);
+}
+
+.service-slide-card:hover .icon-3d::after,
+.glass-card:hover .icon-3d::after,
+.icon-3d:hover::after {
+  opacity: 1;
+}
+
 
 /* Footer */
 footer {
@@ -325,7 +464,7 @@ footer {
 /* Responsive */
 @media (max-width: 768px) {
   .hero-section {
-    padding: 6rem 0 3rem;
+    padding: 10rem 0 4rem;
     text-align: center;
   }
 
@@ -344,7 +483,7 @@ footer {
   transition: all 0.5s ease;
 }
 
-/* We need to target the SVG content via JS or if inline, but since it's an object, 
+/* We need to target the SVG content via JS or if inline, but since it's an object,
    we might need to rely on JS to inject styles or use the inline styles in SVG.
    However, we can add a class for the container animation. */
 
@@ -414,3 +553,499 @@ footer {
 .pointer-events-none {
   pointer-events: none;
 }
+
+/* Marquee Animation */
+.marquee-container {
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  padding: 2rem 0;
+}
+
+.marquee-content {
+  display: inline-block;
+  animation: marquee 30s linear infinite;
+  padding-left: 100%;
+  /* Start off-screen */
+}
+
+/* For infinite loop sensation without gap, we usually duplicate content or use two sets.
+   A simpler approach for this task: standard marquee */
+/* Services Marquee Section */
+.service-marquee-section {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 2rem 0;
+}
+
+.service-marquee-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.service-marquee-content {
+  display: flex;
+  width: fit-content;
+  animation: marquee-scroll 40s linear infinite;
+  padding-left: 2rem;
+  /* Initial offset */
+}
+
+/* Pause animation on hover for better UX */
+.service-marquee-content:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+    /* Assumes content is duplicated once */
+  }
+}
+
+/* Service Slide Card */
+.service-slide-card {
+  width: 320px;
+  flex-shrink: 0;
+  margin-right: 2rem;
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.service-slide-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.service-slide-card .card-body {
+  padding: 2rem;
+  position: relative;
+  z-index: 2;
+  background: white;
+}
+
+.service-slide-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 50px rgba(67, 97, 238, 0.2);
+  z-index: 10;
+}
+
+.service-slide-card:hover img {
+  transform: scale(1.1);
+}
+
+/* Gradient line on top of card */
+.service-slide-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+
+  .gallery-card:hover img {
+    transform: scale(1.1);
+  }
+
+  @keyframes scrollLeft {
+    0% {
+      transform: translateX(0);
+    }
+
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes scrollRight {
+    0% {
+      transform: translateX(-50%);
+    }
+
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+
+  /* Infinite Scroll Marquee (Seamless) */
+  .logos-slider {
+    overflow: hidden;
+    padding: 30px 0;
+    background: white;
+    white-space: nowrap;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    border-radius: 100px;
+  }
+
+  .logos-slider:before,
+  .logos-slider:after {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    height: 100%;
+    content: "";
+    z-index: 2;
+  }
+
+  .logos-slider:before {
+    left: 0;
+    background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
+  }
+
+  .logos-slider:after {
+    right: 0;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
+  }
+
+  .logos-slide {
+    display: inline-block;
+    animation: 20s slide infinite linear;
+  }
+
+  .logos-slide img {
+    height: 80px;
+    margin: 0 40px;
+    transition: all 0.3s ease;
+  }
+
+  .logos-slide img:hover {
+    transform: scale(1.1);
+  }
+
+  @keyframes slide {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+  /* Utility Classes */
+  .opacity-10 {
+    opacity: 0.1 !important;
+  }
+
+  /* Feature Items */
+  .feature-item {
+    display: flex;
+    align-items: center;
+    /* Centered alignment */
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 20px;
+    transition: var(--transition);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+  }
+
+  .feature-item:hover {
+    transform: translateY(-5px) translateX(5px);
+    box-shadow: 0 20px 40px rgba(67, 97, 238, 0.1);
+    border-color: rgba(67, 97, 238, 0.2);
+  }
+
+  .feature-icon {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1.5rem;
+    font-size: 1.5rem;
+    background: white;
+    color: var(--primary);
+    transition: var(--transition);
+    box-shadow: 0 8px 20px rgba(67, 97, 238, 0.15);
+    /* Premium shadow */
+    border: 1px solid rgba(67, 97, 238, 0.1);
+  }
+
+  .feature-item:hover .feature-icon {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 10px 25px rgba(67, 97, 238, 0.3);
+    border-color: transparent;
+  }
+
+  /* Updated Stats Cards for Grid */
+  .stats-grid-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: var(--transition);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .stats-grid-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border-color: var(--primary-light);
+  }
+
+  .stats-grid-card h3 {
+    font-size: 2.5rem;
+  }
+
+  .gallery-card:hover img {
+    transform: scale(1.1);
+  }
+
+  @keyframes scrollLeft {
+    0% {
+      transform: translateX(0);
+    }
+
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes scrollRight {
+    0% {
+      transform: translateX(-50%);
+    }
+
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+
+  /* Infinite Scroll Marquee (Seamless) */
+  .logos-slider {
+    overflow: hidden;
+    padding: 30px 0;
+    background: white;
+    white-space: nowrap;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    border-radius: 100px;
+  }
+
+  .logos-slider:before,
+  .logos-slider:after {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    height: 100%;
+    content: "";
+    z-index: 2;
+  }
+
+  .logos-slider:before {
+    left: 0;
+    background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
+  }
+
+  .logos-slider:after {
+    right: 0;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
+  }
+
+  .logos-slide {
+    display: inline-block;
+    animation: 20s slide infinite linear;
+  }
+
+  .logos-slide img {
+    height: 80px;
+    margin: 0 40px;
+    transition: all 0.3s ease;
+  }
+
+  .logos-slide img:hover {
+    transform: scale(1.1);
+  }
+
+  @keyframes slide {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+  /* Utility Classes */
+  .opacity-10 {
+    opacity: 0.1 !important;
+  }
+
+  /* Feature Items */
+  .feature-item {
+    display: flex;
+    align-items: center;
+    /* Centered alignment */
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 20px;
+    transition: var(--transition);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+  }
+
+  .feature-item:hover {
+    transform: translateY(-5px) translateX(5px);
+    box-shadow: 0 20px 40px rgba(67, 97, 238, 0.1);
+    border-color: rgba(67, 97, 238, 0.2);
+  }
+
+  .feature-icon {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1.5rem;
+    font-size: 1.5rem;
+    background: white;
+    color: var(--primary);
+    transition: var(--transition);
+    box-shadow: 0 8px 20px rgba(67, 97, 238, 0.15);
+    /* Premium shadow */
+    border: 1px solid rgba(67, 97, 238, 0.1);
+  }
+
+  .feature-item:hover .feature-icon {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 10px 25px rgba(67, 97, 238, 0.3);
+    border-color: transparent;
+  }
+
+  /* Updated Stats Cards for Grid */
+  .stats-grid-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: var(--transition);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .stats-grid-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border-color: var(--primary-light);
+  }
+
+  .stats-grid-card h3 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Gallery Marquee Styles */
+  .gallery-marquee {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .gallery-track {
+    display: inline-flex;
+    gap: 1.5rem;
+    padding: 1rem 0;
+  }
+
+  .gallery-track.scroll-left {
+    animation: scrollLeft 40s linear infinite;
+  }
+
+  .gallery-track.scroll-right {
+    animation: scrollRight 40s linear infinite;
+  }
+
+  /* Pause on hover */
+  .gallery-marquee:hover .gallery-track {
+    animation-play-state: paused;
+  }
+
+  .gallery-card {
+    width: 350px;
+    height: 250px;
+    flex-shrink: 0;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+  }
+
+  .gallery-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .gallery-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+  }
+
+  .gallery-card:hover img {
+    transform: scale(1.1);
+  }
+
+  @keyframes scrollLeft {
+    0% {
+      transform: translateX(0);
+    }
+
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes scrollRight {
+    0% {
+      transform: translateX(-50%);
+    }
+
+    100% {
+      transform: translateX(0);
+    }
+  }

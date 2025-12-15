@@ -22,8 +22,9 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top glass-nav">
         <div class="container">
-            <a class="navbar-brand" href="../index.html">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="../index.html">
                 <img src="../images/logo.png" alt="Political Soch" height="80">
+                <span class="text-gradient fw-bold">Political Soch</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -33,7 +34,7 @@
                     <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
                     <li class="nav-item"><a class="nav-link active" href="services.html">Services</a></li>
-
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                     <li class="nav-item ms-lg-3">
                         <a href="contact.html" class="btn btn-primary text-white px-4">Get Started</a>
@@ -85,134 +86,92 @@
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
-                    <div class="glass-card service-card h-100">
-                        <div class="icon-3d">
-                            <i class="fas fa-comments"></i>
+                    <div class="glass-card service-card h-100 p-0 overflow-hidden">
+                        <img src="../images/service/public-sentiment.png" alt="Public Sentiment" class="w-100"
+                            style="height: 200px; object-fit: cover;">
+                        <div class="p-4">
+                            <div class="icon-3d mb-3">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <h4 class="fw-bold">Public Sentiment</h4>
+                            <p class="text-muted">Tracking of public sentiment on policy issues and political
+                                preferences
+                                across demographics.</p>
                         </div>
-                        <h4 class="fw-bold">Public Sentiment</h4>
-                        <p class="text-muted">Tracking of public sentiment on policy issues and political preferences
-                            across demographics.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
-                    <div class="glass-card service-card h-100">
-                        <div class="icon-3d">
-                            <i class="fab fa-twitter"></i>
+                    <div class="glass-card service-card h-100 p-0 overflow-hidden">
+                        <img src="../images/service/digital-analytics.png" alt="Digital Analytics" class="w-100"
+                            style="height: 200px; object-fit: cover;">
+                        <div class="p-4">
+                            <div class="icon-3d mb-3">
+                                <i class="fab fa-twitter"></i>
+                            </div>
+                            <h4 class="fw-bold">Digital Analytics</h4>
+                            <p class="text-muted">Advanced analysis of political discourse across social platforms to
+                                identify trends and sentiment.</p>
                         </div>
-                        <h4 class="fw-bold">Digital Analytics</h4>
-                        <p class="text-muted">Advanced analysis of political discourse across social platforms to
-                            identify trends and sentiment.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
-                    <div class="glass-card service-card h-100">
-                        <div class="icon-3d">
-                            <i class="fas fa-chart-bar"></i>
+                    <div class="glass-card service-card h-100 p-0 overflow-hidden">
+                        <img src="../images/service/demographic-insights.png" alt="Demographic Insights" class="w-100"
+                            style="height: 200px; object-fit: cover;">
+                        <div class="p-4">
+                            <div class="icon-3d mb-3">
+                                <i class="fas fa-chart-bar"></i>
+                            </div>
+                            <h4 class="fw-bold">Demographic Insights</h4>
+                            <p class="text-muted">Detailed analysis of behavioral patterns across age, gender, income,
+                                education, and geographic segments.</p>
                         </div>
-                        <h4 class="fw-bold">Demographic Insights</h4>
-                        <p class="text-muted">Detailed analysis of behavioral patterns across age, gender, income,
-                            education, and geographic segments.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
-                    <div class="glass-card service-card h-100">
-                        <div class="icon-3d">
-                            <i class="fas fa-map-marked-alt"></i>
+                    <div class="glass-card service-card h-100 p-0 overflow-hidden">
+                        <img src="../images/service/geospatial-analysis.png" alt="Geospatial Analysis" class="w-100"
+                            style="height: 200px; object-fit: cover;">
+                        <div class="p-4">
+                            <div class="icon-3d mb-3">
+                                <i class="fas fa-map-marked-alt"></i>
+                            </div>
+                            <h4 class="fw-bold">Geospatial Analysis</h4>
+                            <p class="text-muted">Granular analysis at the constituency level to identify micro-trends
+                                and
+                                optimize operations.</p>
                         </div>
-                        <h4 class="fw-bold">Geospatial Analysis</h4>
-                        <p class="text-muted">Granular analysis at the constituency level to identify micro-trends and
-                            optimize operations.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="glass-card service-card h-100 p-0 overflow-hidden">
+                        <img src="../images/service/new.jpeg" alt="Campaign Management" class="w-100"
+                            style="height: 200px; object-fit: cover;">
+                        <div class="p-4">
+                            <div class="icon-3d mb-3">
+                                <i class="fas fa-bullhorn"></i>
+                            </div>
+                            <h4 class="fw-bold">Campaign Management</h4>
+                            <p class="text-muted mb-3">Strategic planning and execution of political campaigns to
+                                maximize
+                                reach and impact through data-driven strategies.</p>
+                            <ul class="list-unstyled text-muted small text-start">
+                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Voter Outreach &
+                                    Mobilization</li>
+                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Digital Presence
+                                    Management</li>
+                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Crisis Communication</li>
+                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Volunteer Coordination
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Pricing Tiers -->
-    <section class="py-5 mb-5">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="display-6 fw-bold mb-3">Pricing Plans</h2>
-                <p class="text-muted">Flexible options to suit organizations of all sizes</p>
-            </div>
-            <div class="row g-4">
-                <!-- Basic Plan -->
-                <div class="col-md-4">
-                    <div class="glass-card h-100 position-relative overflow-hidden">
-                        <div class="text-center mb-4">
-                            <h4 class="fw-bold">Basic</h4>
-                            <div class="display-5 fw-bold text-primary my-3">$2,500</div>
-                            <span class="text-muted">/survey</span>
-                        </div>
-                        <ul class="list-unstyled mb-4">
-                            <li class="mb-3"><i class="fas fa-check text-success me-2"></i> Sample size up to 1,000
-                            </li>
-                            <li class="mb-3"><i class="fas fa-check text-success me-2"></i> Standard demographics
-                            </li>
-                            <li class="mb-3"><i class="fas fa-check text-success me-2"></i> PDF report</li>
-                            <li class="mb-3"><i class="fas fa-check text-success me-2"></i> 5-day turnaround</li>
-                            <li class="mb-3 text-muted"><i class="fas fa-times me-2"></i> Interactive dashboard</li>
-                        </ul>
-                        <div class="text-center mt-auto">
-                            <a href="contact.html" class="btn btn-outline-primary w-100">Get Started</a>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- Standard Plan -->
-                <div class="col-md-4">
-                    <div class="glass-card h-100 position-relative overflow-hidden border-primary"
-                        style="border-width: 2px;">
-                        <div class="position-absolute top-0 end-0 bg-primary text-white px-3 py-1 small fw-bold"
-                            style="border-bottom-left-radius: 10px;">Popular</div>
-                        <div class="text-center mb-4">
-                            <h4 class="fw-bold">Standard</h4>
-                            <div class="display-5 fw-bold text-primary my-3">$5,000</div>
-                            <span class="text-muted">/survey</span>
-                        </div>
-                        <ul class="list-unstyled mb-4">
-                            <li class="mb-3"><i class="fas fa-check text-success me-2"></i> Sample size up to 2,500
-                            </li>
-                            <li class="mb-3"><i class="fas fa-check text-success me-2"></i> Advanced demographics
-                            </li>
-                            <li class="mb-3"><i class="fas fa-check text-success me-2"></i> PDF report & Dashboard
-                            </li>
-                            <li class="mb-3"><i class="fas fa-check text-success me-2"></i> 3-day turnaround</li>
-                            <li class="mb-3"><i class="fas fa-check text-success me-2"></i> Geospatial analysis</li>
-                        </ul>
-                        <div class="text-center mt-auto">
-                            <a href="contact.html" class="btn btn-primary w-100">Get Started</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Enterprise Plan -->
-                <div class="col-md-4">
-                    <div class="glass-card h-100 position-relative overflow-hidden">
-                        <div class="text-center mb-4">
-                            <h4 class="fw-bold">Enterprise</h4>
-                            <div class="display-5 fw-bold text-primary my-3">Custom</div>
-                            <span class="text-muted">Contact for pricing</span>
-                        </div>
-                        <ul class="list-unstyled mb-4">
-                            <li class="mb-3"><i class="fas fa-check text-success me-2"></i> Unlimited sample size
-                            </li>
-                            <li class="mb-3"><i class="fas fa-check text-success me-2"></i> Comprehensive analysis
-                            </li>
-                            <li class="mb-3"><i class="fas fa-check text-success me-2"></i> All deliverables
-                                included
-                            </li>
-                            <li class="mb-3"><i class="fas fa-check text-success me-2"></i> 24-hour turnaround</li>
-                            <li class="mb-3"><i class="fas fa-check text-success me-2"></i> Dedicated manager</li>
-                        </ul>
-                        <div class="text-center mt-auto">
-                            <a href="contact.html" class="btn btn-outline-primary w-100">Contact Sales</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Footer -->
     <footer>
